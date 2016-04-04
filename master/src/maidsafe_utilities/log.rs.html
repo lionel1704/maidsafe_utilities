@@ -530,6 +530,13 @@
 <span id="487">487</span>
 <span id="488">488</span>
 <span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 MaidSafe.net limited.</span>
 <span class='comment'>//</span>
@@ -548,29 +555,30 @@
 <span class='comment'>// Please review the Licences for the specific language governing permissions and limitations</span>
 <span class='comment'>// relating to use of the SAFE Network Software.</span>
 
-<span class='doccomment'>//! These functions can initialise logging for output to stdout only, or to a file and</span>
-<span class='doccomment'>//! stdout. For more fine-grained control, create file called `log.toml` in the root</span>
-<span class='doccomment'>//! directory of the project, or in the same directory where the executable is.</span>
-<span class='doccomment'>//! See http://sfackler.github.io/log4rs/doc/v0.3.3/log4rs/index.html for details</span>
-<span class='doccomment'>//! about format and structure of this file.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! These functions can initialise logging for output to stdout only, or to a file and stdout.  For</span>
+<span class='doccomment'>//! more fine-grained control, create a file called `log.toml` in the root directory of the project,</span>
+<span class='doccomment'>//! or in the same directory where the executable is.  See [log4rs docs]</span>
+<span class='doccomment'>//! (http://sfackler.github.io/log4rs/doc/v0.3.3/log4rs/index.html) for details about the format and</span>
+<span class='doccomment'>//! structure of this file.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! An example of a log message is:</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//! # fn main() { /*</span>
-<span class='doccomment'>//! W 19:33:49.245434 &lt;main&gt; [example:src/main.rs:50] Warning level message.</span>
-<span class='doccomment'>//! ^        ^          ^        ^          ^                    ^</span>
-<span class='doccomment'>//! |    timestamp      | top-level module  |                 message</span>
-<span class='doccomment'>//! |                   |                   |</span>
-<span class='doccomment'>//! |              thread name       file and line no.</span>
+<span class='doccomment'>//! WARN 19:33:49.245434200 &lt;main&gt; [example::my_mod main.rs:10] Warning level message.</span>
+<span class='doccomment'>//! ^           ^             ^              ^         ^                  ^</span>
+<span class='doccomment'>//! |       timestamp         |           module       |               message</span>
+<span class='doccomment'>//! |                         |                        |</span>
+<span class='doccomment'>//! |                    thread name           file and line no.</span>
 <span class='doccomment'>//! |</span>
-<span class='doccomment'>//! level (E, W, I, D, or T for error, warn, info, debug or trace respectively)</span>
+<span class='doccomment'>//! level (ERROR, WARN, INFO, DEBUG, or TRACE)</span>
 <span class='doccomment'>//! # */}</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! Logging of the thread name is enabled or disabled via the `show_thread_name` parameter.  If</span>
 <span class='doccomment'>//! enabled, and the thread executing the log statement is unnamed, the thread name is shown as</span>
-<span class='doccomment'>//! `???`.</span>
+<span class='doccomment'>//! `&lt;unnamed&gt;`.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! The functions can safely be called multiple times concurrently.</span>
 <span class='doccomment'>//!</span>
@@ -584,20 +592,26 @@
 <span class='doccomment'>//! use std::thread;</span>
 <span class='doccomment'>//! use maidsafe_utilities::thread::RaiiThreadJoiner;</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//! fn main() {</span>
-<span class='doccomment'>//!     maidsafe_utilities::log::init(true);</span>
+<span class='doccomment'>//! mod my_mod {</span>
+<span class='doccomment'>//!     pub fn show_warning() {</span>
+<span class='doccomment'>//!         warn!(&quot;A warning&quot;);</span>
+<span class='doccomment'>//!     }</span>
+<span class='doccomment'>//! }</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//!     warn!(&quot;A warning&quot;);</span>
+<span class='doccomment'>//! fn main() {</span>
+<span class='doccomment'>//!     unwrap_result!(maidsafe_utilities::log::init(true));</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//!     my_mod::show_warning();</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//!     let unnamed = thread::spawn(move || info!(&quot;Message in unnamed thread&quot;));</span>
 <span class='doccomment'>//!     let _ = unnamed.join();</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//!     let _named = RaiiThreadJoiner::new(thread!(&quot;Worker&quot;,</span>
-<span class='doccomment'>//!                      move || error!(&quot;Message in named thread&quot;)));</span>
+<span class='doccomment'>//!                                                move || error!(&quot;Message in named thread&quot;)));</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//!     // W 12:24:07.064746 &lt;main&gt; [example:src/main.rs:11] A warning</span>
-<span class='doccomment'>//!     // I 12:24:07.065746 ??? [example:src/main.rs:13] Message in unnamed thread</span>
-<span class='doccomment'>//!     // E 12:24:07.065746 Worker [example:src/main.rs:16] Message in named thread</span>
+<span class='doccomment'>//!     // WARN 16:10:44.989712300 &lt;main&gt; [example::my_mod main.rs:10] A warning</span>
+<span class='doccomment'>//!     // INFO 16:10:44.990716600 &lt;unnamed&gt; [example main.rs:19] Message in unnamed thread</span>
+<span class='doccomment'>//!     // ERROR 16:10:44.991221900 Worker [example main.rs:22] Message in named thread</span>
 <span class='doccomment'>//! }</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//!</span>
@@ -807,9 +821,9 @@
 
 <span class='kw'>fn</span> <span class='ident'>make_pattern</span>(<span class='ident'>show_thread_name</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>PatternLayout</span> {
     <span class='kw'>let</span> <span class='ident'>pattern</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>show_thread_name</span> {
-        <span class='string'>&quot;%l %d{%H:%M:%S.%f} %T [%M ##%f##:%L] %m&quot;</span>
+        <span class='string'>&quot;%l %d{%H:%M:%S.%f} %T [%M #FS#%f#FE#:%L] %m&quot;</span>
     } <span class='kw'>else</span> {
-        <span class='string'>&quot;%l %d{%H:%M:%S.%f} [%M ##%f##:%L] %m&quot;</span>
+        <span class='string'>&quot;%l %d{%H:%M:%S.%f} [%M #FS#%f#FE#:%L] %m&quot;</span>
     };
 
     <span class='macro'>unwrap_result</span><span class='macro'>!</span>(<span class='ident'>PatternLayout</span>::<span class='ident'>new</span>(<span class='ident'>pattern</span>))
