@@ -113,6 +113,8 @@
 <span id="70">70</span>
 <span id="71">71</span>
 <span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 MaidSafe.net limited.</span>
 <span class='comment'>//</span>
@@ -173,12 +175,14 @@
 <span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>quick_error</span>;
 
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span><span class='kw'>mod</span> <span class='ident'>unwrap</span>;
+<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
+<span class='kw'>mod</span> <span class='ident'>unwrap</span>;
 
 <span class='doccomment'>/// Utilities related to threading.</span>
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span><span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>thread</span>;
+<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>thread</span>;
 
-<span class='doccomment'>/// Allows initialising the env_logger with a standard message format.</span>
+<span class='doccomment'>/// Allows initialising the `env_logger` with a standard message format.</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>log</span>;
 <span class='doccomment'>/// Utilities related to event-subsetting.</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>event_sender</span>;
