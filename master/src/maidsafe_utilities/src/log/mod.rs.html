@@ -681,6 +681,8 @@
 <span id="638">638</span>
 <span id="639">639</span>
 <span id="640">640</span>
+<span id="641">641</span>
+<span id="642">642</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 MaidSafe.net limited.</span>
 <span class='comment'>//</span>
@@ -777,6 +779,7 @@
 <span class='kw'>use</span> <span class='ident'>rand</span>;
 
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>borrow</span>::<span class='ident'>Borrow</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>env</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>::{<span class='self'>self</span>, <span class='ident'>Display</span>, <span class='ident'>Formatter</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>path</span>::<span class='ident'>Path</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>ToSocketAddrs</span>;
@@ -798,7 +801,8 @@
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='prelude-val'>Err</span>(<span class='string'>&quot;Logger already initialised&quot;</span>.<span class='ident'>to_owned</span>());
 
     <span class='ident'>INITIALISE_LOGGER</span>.<span class='ident'>call_once</span>(<span class='op'>||</span> {
-        <span class='kw'>let</span> <span class='ident'>config_path</span> <span class='op'>=</span> <span class='ident'>Path</span>::<span class='ident'>new</span>(<span class='ident'>CONFIG_FILE</span>);
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>config_path</span> <span class='op'>=</span> <span class='macro'>unwrap_result</span><span class='macro'>!</span>(<span class='ident'>env</span>::<span class='ident'>current_exe</span>());
+        <span class='ident'>config_path</span>.<span class='ident'>set_file_name</span>(<span class='ident'>CONFIG_FILE</span>);
 
         <span class='ident'>result</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>config_path</span>.<span class='ident'>is_file</span>() {
             <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>creator</span> <span class='op'>=</span> <span class='ident'>Creator</span>::<span class='ident'>default</span>();
