@@ -117,6 +117,8 @@
 <span id="73">73</span>
 <span id="74">74</span>
 <span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 MaidSafe.net limited.</span>
 <span class='comment'>//</span>
@@ -189,10 +191,12 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>event_sender</span>;
 <span class='doccomment'>/// Allows initialising the `env_logger` with a standard message format.</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>log</span>;
+<span class='kw'>mod</span> <span class='ident'>seeded_rng</span>;
 <span class='doccomment'>/// Functions for serialisation and deserialisation</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>serialisation</span>;
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>big_endian_sip_hash</span>::<span class='ident'>big_endian_sip_hash</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>seeded_rng</span>::<span class='ident'>SeededRng</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
