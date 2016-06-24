@@ -184,6 +184,8 @@
 <span id="140">140</span>
 <span id="141">141</span>
 <span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 MaidSafe.net limited.</span>
 <span class='comment'>//</span>
@@ -222,15 +224,15 @@
 
     <span class='doccomment'>/// Releases the `Joiner` by detaching the thread.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>detach</span>(<span class='kw-2'>mut</span> <span class='self'>self</span>) {
-        <span class='kw'>let</span> _ <span class='op'>=</span> <span class='macro'>unwrap</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>joiner</span>.<span class='ident'>take</span>(),
-                        <span class='string'>&quot;Programming error: please report this as a bug.&quot;</span>);
+        <span class='kw'>let</span> _ <span class='op'>=</span> <span class='macro'>unwrap_option</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>joiner</span>.<span class='ident'>take</span>(),
+                               <span class='string'>&quot;Programming error: please report this as a bug.&quot;</span>);
     }
 }
 
 <span class='kw'>impl</span> <span class='ident'>Drop</span> <span class='kw'>for</span> <span class='ident'>Joiner</span> {
     <span class='kw'>fn</span> <span class='ident'>drop</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) {
         <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Some</span>(<span class='ident'>joiner</span>) <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>joiner</span>.<span class='ident'>take</span>() {
-            <span class='macro'>unwrap</span><span class='macro'>!</span>(<span class='ident'>joiner</span>.<span class='ident'>join</span>());
+            <span class='macro'>unwrap_result</span><span class='macro'>!</span>(<span class='ident'>joiner</span>.<span class='ident'>join</span>());
         }
     }
 }
@@ -260,7 +262,7 @@
 <span class='attribute'>#[<span class='ident'>macro_export</span>]</span>
 <span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>thread</span> {
     (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>thread_name</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>entry_point</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> {
-        <span class='macro'>unwrap</span><span class='macro'>!</span>(::<span class='ident'>std</span>::<span class='ident'>thread</span>::<span class='ident'>Builder</span>::<span class='ident'>new</span>().<span class='ident'>name</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>thread_name</span>.<span class='ident'>to_owned</span>())
+        <span class='macro'>unwrap_result</span><span class='macro'>!</span>(::<span class='ident'>std</span>::<span class='ident'>thread</span>::<span class='ident'>Builder</span>::<span class='ident'>new</span>().<span class='ident'>name</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>thread_name</span>.<span class='ident'>to_owned</span>())
                                              .<span class='ident'>spawn</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>entry_point</span>))
     }
 }
@@ -285,8 +287,9 @@
           <span class='ident'>F</span>: <span class='ident'>FnOnce</span>() <span class='op'>+</span> <span class='ident'>Send</span> <span class='op'>+</span> <span class='lifetime'>&#39;static</span>
 {
     <span class='kw'>let</span> <span class='ident'>thread_name</span>: <span class='ident'>String</span> <span class='op'>=</span> <span class='ident'>thread_name</span>.<span class='ident'>into</span>();
-    <span class='kw'>let</span> <span class='ident'>join_handle_res</span> <span class='op'>=</span> <span class='ident'>std</span>::<span class='ident'>thread</span>::<span class='ident'>Builder</span>::<span class='ident'>new</span>().<span class='ident'>name</span>(<span class='ident'>thread_name</span>)
-                                               .<span class='ident'>spawn</span>(<span class='ident'>func</span>);
+    <span class='kw'>let</span> <span class='ident'>join_handle_res</span> <span class='op'>=</span> <span class='ident'>std</span>::<span class='ident'>thread</span>::<span class='ident'>Builder</span>::<span class='ident'>new</span>()
+        .<span class='ident'>name</span>(<span class='ident'>thread_name</span>)
+        .<span class='ident'>spawn</span>(<span class='ident'>func</span>);
     <span class='ident'>Joiner</span>::<span class='ident'>new</span>(<span class='macro'>unwrap</span><span class='macro'>!</span>(<span class='ident'>join_handle_res</span>))
 }
 
@@ -306,8 +309,9 @@
             <span class='kw'>let</span> <span class='ident'>time_before</span> <span class='op'>=</span> <span class='ident'>Instant</span>::<span class='ident'>now</span>();
             {
                 <span class='ident'>named</span>(<span class='string'>&quot;JoinerTestDaemon&quot;</span>, <span class='kw'>move</span> <span class='op'>||</span> {
-                    <span class='ident'>thread</span>::<span class='ident'>sleep</span>(<span class='ident'>Duration</span>::<span class='ident'>from_millis</span>(<span class='ident'>SLEEP_DURATION_DAEMON</span>));
-                }).<span class='ident'>detach</span>();
+                        <span class='ident'>thread</span>::<span class='ident'>sleep</span>(<span class='ident'>Duration</span>::<span class='ident'>from_millis</span>(<span class='ident'>SLEEP_DURATION_DAEMON</span>));
+                    })
+                    .<span class='ident'>detach</span>();
             }
             <span class='kw'>let</span> <span class='ident'>diff</span> <span class='op'>=</span> <span class='ident'>time_before</span>.<span class='ident'>elapsed</span>();
 
