@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-21' class='srclink' href='../../src/maidsafe_utilities/src/thread.rs.html#23-25' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-22' class='srclink' href='../../src/maidsafe_utilities/src/thread.rs.html#24-26' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Joiner {
     // some fields omitted
 }</pre><div class='docblock'><p>A RAII style thread joiner. The destruction of an instance of this type will block until
@@ -56,7 +56,8 @@ the thread it is managing has joined.</p>
 <div class='docblock'><p>Create a new instance of self-managing thread joiner</p>
 </div><h4 id='method.detach' class='method'><code>fn <a href='#method.detach' class='fnname'>detach</a>(self)</code></h4>
 <div class='docblock'><p>Releases the <code>Joiner</code> by detaching the thread.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../maidsafe_utilities/thread/struct.Joiner.html' title='maidsafe_utilities::thread::Joiner'>Joiner</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../maidsafe_utilities/thread/struct.Joiner.html' title='maidsafe_utilities::thread::Joiner'>Joiner</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../maidsafe_utilities/thread/struct.Joiner.html' title='maidsafe_utilities::thread::Joiner'>Joiner</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
