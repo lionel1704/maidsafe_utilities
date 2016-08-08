@@ -50,10 +50,15 @@
                </span><a id='src-157' class='srclink' href='../src/antidote/lib.rs.html#220' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>#[must_use]
 pub struct RwLockWriteGuard&lt;'a, T: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + 'a&gt;(_);</pre><div class='docblock'><p>Like <code>std::sync::RwLockWriteGuard</code>.</p>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a, T: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../antidote/struct.RwLockWriteGuard.html' title='antidote::RwLockWriteGuard'>RwLockWriteGuard</a>&lt;'a, T&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = T</code></h4>
-<h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;T</code></h4>
-</div><h3 class='impl'><code>impl&lt;'a, T: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html' title='core::ops::DerefMut'>DerefMut</a> for <a class='struct' href='../antidote/struct.RwLockWriteGuard.html' title='antidote::RwLockWriteGuard'>RwLockWriteGuard</a>&lt;'a, T&gt;</code></h3><div class='impl-items'><h4 id='method.deref_mut' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html#tymethod.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut T</code></h4>
-</div></section>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a, T: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../antidote/struct.RwLockWriteGuard.html' title='antidote::RwLockWriteGuard'>RwLockWriteGuard</a>&lt;'a, T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-162' class='srclink' href='../src/antidote/lib.rs.html#222-229' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = T</code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;T</code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a, T: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html' title='core::ops::DerefMut'>DerefMut</a> for <a class='struct' href='../antidote/struct.RwLockWriteGuard.html' title='antidote::RwLockWriteGuard'>RwLockWriteGuard</a>&lt;'a, T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-168' class='srclink' href='../src/antidote/lib.rs.html#231-236' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deref_mut' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html#tymethod.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut T</code></h4>
+<div class='docblock'><p>The method called to mutably dereference a value</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,6 +81,8 @@ pub struct RwLockWriteGuard&lt;'a, T: ?<a class='trait' href='https://doc.rust-l
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

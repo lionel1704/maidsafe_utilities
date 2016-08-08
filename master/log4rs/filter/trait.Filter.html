@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-793' class='srclink' href='../../src/log4rs/filter/mod.rs.html#12-15' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-782' class='srclink' href='../../src/log4rs/filter/mod.rs.html#12-15' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Filter: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static {
     fn <a href='#tymethod.filter' class='fnname'>filter</a>(&amp;self, record: &amp;<a class='struct' href='../../log/struct.LogRecord.html' title='log::LogRecord'>LogRecord</a>) -&gt; <a class='enum' href='../../log4rs/filter/enum.Response.html' title='log4rs::filter::Response'>Response</a>;
 }</pre><div class='docblock'><p>The trait implemented by log4rs filters.</p>
@@ -61,7 +61,7 @@ sent to that appender.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl <a class='trait' href='../../log4rs/filter/trait.Filter.html' title='log4rs::filter::Filter'>Filter</a> for <a class='struct' href='../../log4rs/filter/threshold/struct.ThresholdFilter.html' title='log4rs::filter::threshold::ThresholdFilter'>ThresholdFilter</a></code></li>
+    <li><code>impl Filter for <a class='struct' href='../../log4rs/filter/threshold/struct.ThresholdFilter.html' title='log4rs::filter::threshold::ThresholdFilter'>ThresholdFilter</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/log4rs/filter/trait.Filter.js">
                  </script></section>
@@ -87,6 +87,8 @@ sent to that appender.</p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

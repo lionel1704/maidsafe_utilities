@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1405' class='srclink' href='../../src/log4rs/file/mod.rs.html#114-123' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-1394' class='srclink' href='../../src/log4rs/file/mod.rs.html#114-123' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Deserialize: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static {
     type <a href='#associatedtype.Trait' class='type'>Trait</a>: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>;
     fn <a href='#tymethod.deserialize' class='fnname'>deserialize</a>(&amp;self, config: <a class='enum' href='../../serde_value/enum.Value.html' title='serde_value::Value'>Value</a>, deserializers: &amp;<a class='struct' href='../../log4rs/file/struct.Deserializers.html' title='log4rs::file::Deserializers'>Deserializers</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;Self::<a class='trait' href='../../log4rs/file/trait.Deserialize.html' title='log4rs::file::Deserialize'>Trait</a>&gt;, <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html' title='std::error::Error'>Error</a>&gt;&gt;;
@@ -63,10 +63,10 @@
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl <a class='trait' href='../../log4rs/file/trait.Deserialize.html' title='log4rs::file::Deserialize'>Deserialize</a> for <a class='struct' href='../../log4rs/append/file/struct.FileAppenderDeserializer.html' title='log4rs::append::file::FileAppenderDeserializer'>FileAppenderDeserializer</a></code></li>
-<li><code>impl <a class='trait' href='../../log4rs/file/trait.Deserialize.html' title='log4rs::file::Deserialize'>Deserialize</a> for <a class='struct' href='../../log4rs/append/console/struct.ConsoleAppenderDeserializer.html' title='log4rs::append::console::ConsoleAppenderDeserializer'>ConsoleAppenderDeserializer</a></code></li>
-<li><code>impl <a class='trait' href='../../log4rs/file/trait.Deserialize.html' title='log4rs::file::Deserialize'>Deserialize</a> for <a class='struct' href='../../log4rs/filter/threshold/struct.ThresholdFilterDeserializer.html' title='log4rs::filter::threshold::ThresholdFilterDeserializer'>ThresholdFilterDeserializer</a></code></li>
-<li><code>impl <a class='trait' href='../../log4rs/file/trait.Deserialize.html' title='log4rs::file::Deserialize'>Deserialize</a> for <a class='struct' href='../../log4rs/encode/pattern/struct.PatternEncoderDeserializer.html' title='log4rs::encode::pattern::PatternEncoderDeserializer'>PatternEncoderDeserializer</a></code></li>
+    <li><code>impl Deserialize for <a class='struct' href='../../log4rs/append/file/struct.FileAppenderDeserializer.html' title='log4rs::append::file::FileAppenderDeserializer'>FileAppenderDeserializer</a></code></li>
+<li><code>impl Deserialize for <a class='struct' href='../../log4rs/append/console/struct.ConsoleAppenderDeserializer.html' title='log4rs::append::console::ConsoleAppenderDeserializer'>ConsoleAppenderDeserializer</a></code></li>
+<li><code>impl Deserialize for <a class='struct' href='../../log4rs/filter/threshold/struct.ThresholdFilterDeserializer.html' title='log4rs::filter::threshold::ThresholdFilterDeserializer'>ThresholdFilterDeserializer</a></code></li>
+<li><code>impl Deserialize for <a class='struct' href='../../log4rs/encode/pattern/struct.PatternEncoderDeserializer.html' title='log4rs::encode::pattern::PatternEncoderDeserializer'>PatternEncoderDeserializer</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/log4rs/file/trait.Deserialize.js">
                  </script></section>
@@ -92,6 +92,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
