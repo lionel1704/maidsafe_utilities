@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `StringDeserializer` struct in crate `serde`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, StringDeserializer">
+    <meta name="description" content="API documentation for the Rust `CowStrDeserializer` struct in crate `serde`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CowStrDeserializer">
 
-    <title>serde::de::value::StringDeserializer - Rust</title>
+    <title>serde::de::value::CowStrDeserializer - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a>::<wbr><a href='index.html'>value</a></p><script>window.sidebarCurrent = {name: 'StringDeserializer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a>::<wbr><a href='index.html'>value</a></p><script>window.sidebarCurrent = {name: 'CowStrDeserializer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -43,13 +43,13 @@
     </nav>
 
     <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a>::<wbr><a href='index.html'>value</a>::<wbr><a class='struct' href=''>StringDeserializer</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>serde</a>::<wbr><a href='../index.html'>de</a>::<wbr><a href='index.html'>value</a>::<wbr><a class='struct' href=''>CowStrDeserializer</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-8357' class='srclink' href='../../../src/serde/de/value.rs.html#374' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct StringDeserializer&lt;E&gt;(_, _);</pre><div class='docblock'><p>A helper deserializer that deserializes a <code>String</code>.</p>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;E&gt; <a class='trait' href='../../../serde/de/trait.Deserializer.html' title='serde::de::Deserializer'>Deserializer</a> for <a class='struct' href='../../../serde/de/value/struct.StringDeserializer.html' title='serde::de::value::StringDeserializer'>StringDeserializer</a>&lt;E&gt; <span class='where'>where E: <a class='trait' href='../../../serde/de/trait.Error.html' title='serde::de::Error'>Error</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8367' class='srclink' href='../../../src/serde/de/value.rs.html#388-426' title='goto source code'>[src]</a></span></h3>
+               </span><a id='src-8523' class='srclink' href='../../../src/serde/de/value.rs.html#472' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct CowStrDeserializer&lt;'a,&nbsp;E&gt;(_, _);</pre><div class='docblock'><p>A helper deserializer that deserializes a <code>String</code>.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;E&gt; <a class='trait' href='../../../serde/de/trait.Deserializer.html' title='serde::de::Deserializer'>Deserializer</a> for <a class='struct' href='../../../serde/de/value/struct.CowStrDeserializer.html' title='serde::de::value::CowStrDeserializer'>CowStrDeserializer</a>&lt;'a,&nbsp;E&gt; <span class='where'>where E: <a class='trait' href='../../../serde/de/trait.Error.html' title='serde::de::Error'>Error</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8535' class='srclink' href='../../../src/serde/de/value.rs.html#486-525' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Error' class='type'><code>type <a href='../../../serde/de/trait.Deserializer.html#associatedtype.Error' class='type'>Error</a> = E</code></h4>
 <div class='docblock'><p>The error type that can be returned if some error occurs during deserialization.</p>
 </div><h4 id='method.deserialize' class='method'><code>fn <a href='../../../serde/de/trait.Deserializer.html#tymethod.deserialize' class='fnname'>deserialize</a>&lt;V&gt;(&amp;mut self, visitor: V) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;V::Value,&nbsp;Self::<a class='trait' href='../../../serde/de/trait.Deserializer.html' title='serde::de::Deserializer'>Error</a>&gt; <span class='where'>where V: <a class='trait' href='../../../serde/de/trait.Visitor.html' title='serde::de::Visitor'>Visitor</a></span></code></h4>
@@ -114,7 +114,7 @@
 <div class='docblock'><p>This method hints that the <code>Deserialize</code> type is expecting a tuple struct. This allows deserializers to parse sequences that aren&#39;t tagged as sequences. <a href="../../../serde/de/trait.Deserializer.html#tymethod.deserialize_tuple_struct">Read more</a></p>
 </div><h4 id='method.deserialize_option' class='method'><code>fn <a href='../../../serde/de/trait.Deserializer.html#tymethod.deserialize_option' class='fnname'>deserialize_option</a>&lt;__V&gt;(&amp;mut self, visitor: __V) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;__V::Value,&nbsp;Self::<a class='trait' href='../../../serde/de/trait.Deserializer.html' title='serde::de::Deserializer'>Error</a>&gt; <span class='where'>where __V: <a class='trait' href='../../../serde/de/trait.Visitor.html' title='serde::de::Visitor'>Visitor</a></span></code></h4>
 <div class='docblock'><p>This method hints that the <code>Deserialize</code> type is expecting an <code>Option</code> value. This allows deserializers that encode an optional value as a nullable value to convert the null value into a <code>None</code>, and a regular value as <code>Some(value)</code>. <a href="../../../serde/de/trait.Deserializer.html#tymethod.deserialize_option">Read more</a></p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;E&gt; <a class='trait' href='../../../serde/de/trait.VariantVisitor.html' title='serde::de::VariantVisitor'>VariantVisitor</a> for <a class='struct' href='../../../serde/de/value/struct.StringDeserializer.html' title='serde::de::value::StringDeserializer'>StringDeserializer</a>&lt;E&gt; <span class='where'>where E: <a class='trait' href='../../../serde/de/trait.Error.html' title='serde::de::Error'>Error</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8498' class='srclink' href='../../../src/serde/de/value.rs.html#429-466' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a,&nbsp;E&gt; <a class='trait' href='../../../serde/de/trait.VariantVisitor.html' title='serde::de::VariantVisitor'>VariantVisitor</a> for <a class='struct' href='../../../serde/de/value/struct.CowStrDeserializer.html' title='serde::de::value::CowStrDeserializer'>CowStrDeserializer</a>&lt;'a,&nbsp;E&gt; <span class='where'>where E: <a class='trait' href='../../../serde/de/trait.Error.html' title='serde::de::Error'>Error</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8668' class='srclink' href='../../../src/serde/de/value.rs.html#528-565' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Error-1' class='type'><code>type <a href='../../../serde/de/trait.VariantVisitor.html#associatedtype.Error' class='type'>Error</a> = E</code></h4>
 <div class='docblock'><p>The error type that can be returned if some error occurs during deserialization.</p>
 </div><h4 id='method.visit_variant' class='method'><code>fn <a href='../../../serde/de/trait.VariantVisitor.html#tymethod.visit_variant' class='fnname'>visit_variant</a>&lt;T&gt;(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T,&nbsp;Self::<a class='trait' href='../../../serde/de/trait.VariantVisitor.html' title='serde::de::VariantVisitor'>Error</a>&gt; <span class='where'>where T: <a class='trait' href='../../../serde/de/trait.Deserialize.html' title='serde::de::Deserialize'>Deserialize</a></span></code></h4>
