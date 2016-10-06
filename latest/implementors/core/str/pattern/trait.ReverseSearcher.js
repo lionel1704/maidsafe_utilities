@@ -1,5 +1,5 @@
 (function() {var implementors = {};
-implementors["antidote"] = [];implementors["lazy_static"] = [];implementors["humantime"] = [];implementors["regex_syntax"] = [];implementors["libc"] = [];implementors["serde"] = [];implementors["mio"] = [];implementors["maidsafe_utilities"] = [];
+implementors["libc"] = [];implementors["lazy_static"] = [];implementors["antidote"] = [];implementors["humantime"] = [];implementors["regex_syntax"] = [];implementors["serde"] = [];implementors["serde"] = [];implementors["mio"] = [];implementors["maidsafe_utilities"] = [];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);
